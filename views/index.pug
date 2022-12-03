@@ -1,0 +1,17 @@
+extends layout
+
+
+block content
+  .flex
+    include header
+  .flex.text-white.w-full.justify-center.text-4xl.font-semibold.my-10.h-8
+    h1 active tasks
+  .flex(style="height:40%").items-center.justify-center.my-6
+    .card.relative.w-64.h-48.p-4.overflow-hidden.bg-gray-900.drop-shadow-2xl.rounded-2xl.mx-8
+      div(class='w-8/10')
+        p.mb-2.text-xl.text-white.font-semibold example task
+        p.mb-1.text-xs.text-white.font-light 20/3/2022
+        p.text-sm.text-white.my-3 example task content blablabla hope this works man really pumped
+        button.py-1.px-2.bg-rose-300.text-white.transition.ease-in.duration-200.text-center.text-base.font-semibold.shadow-md.opacity-70.rounded-lg(type='button' class='hover:bg-red-700 w-full') remove
+  
+    
