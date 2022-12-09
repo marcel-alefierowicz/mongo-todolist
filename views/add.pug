@@ -1,0 +1,12 @@
+extends layout
+
+
+block content
+  .flex
+    include header
+  .flex.items-center.justify-center(style='min-height:70vh; height:100%')
+    .flex.w-96.bg-gray-900.rounded-lg.m-16.shadow-xl.p-4.justify-center.items-center.h-full(style='min-height:50vh')
+      form(action="/add", method="post" class='w-3/4 font-semibold text-gray-200')
+        input(type="text" placeholder='title' name='title' class='my-2 placeholder:text-sm py-1 px-2 hover:ring-violet-200 transition').bg-gray-900.rounded-lg.ring-gray-500.ring-1.w-full
+        textarea(placeholder='content' name='title' class='my-2 placeholder:text-sm py-1 px-2 hover:ring-violet-200 transition').bg-gray-900.rounded-lg.ring-gray-500.ring-1.w-full
+        input(type='date' value='please select a date' name='title' class='my-2 placeholder:text-sm py-1 px-2 hover:ring-violet-200 transition').bg-gray-900.rounded-lg.ring-gray-500.ring-1.w-full.text-gray-500

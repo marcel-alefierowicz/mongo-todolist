@@ -12,4 +12,4 @@ const Schema = mongoose.Schema(
   { collection: "ToDo" }
 );
 
-module.exports = mongoose.model("Baza", Schema);
+module.exports = mongoose.model("db", Schema);
