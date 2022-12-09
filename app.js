@@ -14,5 +14,5 @@ app.use("/", index);
 app.use('/add', add);
 
 app.listen(port, () => {
-  console.log(`Listening on port ${port}`);
+  console.log(`Listening on http://localhost:${port}`);
 });

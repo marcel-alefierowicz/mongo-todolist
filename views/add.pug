@@ -4,9 +4,18 @@ extends layout
 block content
   .flex
     include header
-  .flex.items-center.justify-center(style='min-height:70vh; height:100%')
-    .flex.w-96.bg-gray-900.rounded-lg.m-16.shadow-xl.p-4.justify-center.items-center.h-full(style='min-height:50vh')
+  .flex.text-white.w-full.justify-center.text-4xl.font-semibold.mt-10.h-8
+    h1 add a note
+  .flex.items-center.justify-center(style='min-height:60vh; height:auto')
+    .flex.w-80.bg-gray-900.rounded-2xl.m-4.shadow-xl.p-4.justify-center.h-full(style='min-height:40vh')
       form(action="/add", method="post" class='w-3/4 font-semibold text-gray-200')
-        input(type="text" placeholder='title' name='title' class='my-2 placeholder:text-sm py-1 px-2 hover:ring-violet-200 transition').bg-gray-900.rounded-lg.ring-gray-500.ring-1.w-full
-        textarea(placeholder='content' name='title' class='my-2 placeholder:text-sm py-1 px-2 hover:ring-violet-200 transition').bg-gray-900.rounded-lg.ring-gray-500.ring-1.w-full
-        input(type='date' value='please select a date' name='title' class='my-2 placeholder:text-sm py-1 px-2 hover:ring-violet-200 transition').bg-gray-900.rounded-lg.ring-gray-500.ring-1.w-full.text-gray-500
+        p.text-2xs.font-semibold.text-gray-300 title
+        input(type="text" placeholder='please enter a title' name='title' class='my-2 placeholder:text-sm py-1 px-2 hover:ring-violet-200 transition').bg-gray-900.rounded-lg.ring-gray-500.ring-1.w-full
+        
+        p.text-2xs.font-semibold.text-gray-300.mt-2 content
+        textarea(placeholder='content' name='content' class='my-2 placeholder:text-sm py-1 px-2 hover:ring-violet-200 transition').bg-gray-900.rounded-lg.ring-gray-500.ring-1.w-full
+        
+        p.text-2xs.font-semibold.text-gray-300.mt-2 due date
+        input(type='date' name='due_date' class='my-2 placeholder:text-sm py-1 px-2 hover:ring-violet-200 transition').bg-gray-900.rounded-lg.ring-gray-500.ring-1.w-full.text-gray-500
+
+        input(type='submit' value='create note' name='submit' class='my-2 placeholder:text-sm py-1 px-2 hover:ring-gray-900 transition').bg-emerald-700.rounded-lg.ring-emerald-900.ring-1.w-full.text-white
