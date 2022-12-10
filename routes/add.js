@@ -7,18 +7,23 @@ router.get('/', (req,res) => {
   res.render('add');
 })
 
-// router.post("/", (req, res) => {
-//   let dane = ["aaa", "aadadadad", Date.now(), "12-02-2004"];
-//   let item = new db({
-//     title: dane[0],
-//     content: dane[1],
-//     created_at: dane[2],
-//     finished_at: dane[3],
-//   });
+router.post("/", (req, res) => {
+  const {title, content, due_date} = req.body
 
-//   item.save();
+  const dd = new Date(due_date);
+  const created_at = new Date();
 
-//   res.redirect("/");
-// });
+  const item = new db({
+    title: title,
+    content: content,
+    created_at: created_at,
+    due_date: dd
+  });
+
+  item.save((err) => {
+    err ? console.log(err) : res.redirect('/') 
+  })
+
+});
 
 module.exports = router;

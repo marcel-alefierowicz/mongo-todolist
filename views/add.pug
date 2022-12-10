@@ -10,12 +10,12 @@ block content
     .flex.w-80.bg-gray-900.rounded-2xl.m-4.shadow-xl.p-4.justify-center.h-full(style='min-height:40vh')
       form(action="/add", method="post" class='w-3/4 font-semibold text-gray-200')
         p.text-2xs.font-semibold.text-gray-300 title
-        input(type="text" placeholder='please enter a title' name='title' class='my-2 placeholder:text-sm py-1 px-2 hover:ring-violet-200 transition').bg-gray-900.rounded-lg.ring-gray-500.ring-1.w-full
+        input(type="text" placeholder='' name='title' class='my-2 placeholder:text-sm py-1 px-2 hover:ring-violet-200 transition').bg-gray-900.rounded-lg.ring-gray-500.ring-1.w-full
         
         p.text-2xs.font-semibold.text-gray-300.mt-2 content
-        textarea(placeholder='content' name='content' class='my-2 placeholder:text-sm py-1 px-2 hover:ring-violet-200 transition').bg-gray-900.rounded-lg.ring-gray-500.ring-1.w-full
+        textarea(placeholder='' name='content' class='-mt-1/4 mb-2 placeholder:text-sm py-1 px-2 hover:ring-violet-200 transition').bg-gray-900.rounded-lg.ring-gray-500.ring-1.w-full
         
         p.text-2xs.font-semibold.text-gray-300.mt-2 due date
-        input(type='date' name='due_date' class='my-2 placeholder:text-sm py-1 px-2 hover:ring-violet-200 transition').bg-gray-900.rounded-lg.ring-gray-500.ring-1.w-full.text-gray-500
+        input(type='date' name='due_date' class='-mt-1/4 mb-3 placeholder:text-sm py-1 px-2 hover:ring-violet-200 transition').bg-gray-900.rounded-lg.ring-gray-500.ring-1.w-full.text-gray-500
 
         input(type='submit' value='create note' name='submit' class='my-2 placeholder:text-sm py-1 px-2 hover:ring-gray-900 transition').bg-emerald-700.rounded-lg.ring-emerald-900.ring-1.w-full.text-white
