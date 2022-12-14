@@ -8,6 +8,7 @@ const Schema = mongoose.Schema(
     content: String,
     created_at: Date,
     due_date: Date,
+    done: Boolean
   },
   { collection: "ToDo" }
 );

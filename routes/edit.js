@@ -3,8 +3,12 @@ const router = express.Router();
 const db = require("../models/db");
 
 
-router.get('/', (req,res) => {
-  res.render('add');
+router.get('/:id', (req,res) => {
+  
+  const data = db.find({_id: req.params.id},(err, data) => {
+    console.log(data);
+    res.render("edit", { data: data });
+  });
 })
 
 router.post("/", (req, res) => {

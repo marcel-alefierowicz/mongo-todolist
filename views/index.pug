@@ -8,11 +8,15 @@ block content
     h1 active tasks
   .flex.flex-wrap.items-center.justify-center.my-6(style="height:40%")
     each entry in data
-      .card.relative.w-64.h-64.p-4.overflow-hidden.bg-gray-900.drop-shadow-2xl.rounded-2xl.m-8.min-w-64
+      .card.relative.w-64.h-64.px-4.pt-2.overflow-hidden.bg-gray-900.drop-shadow-2xl.rounded-2xl.m-8.min-w-64
         div(class='w-8/10 h-full')
           div(class='h-3/4')
-            p.mb-2.text-xl.text-white.font-semibold= entry.title
+            p.mb-2.text-xl.text-white.font-semibold.underline.decoration-solid.underline-offset-2.decoration-2.decoration-emerald-500= entry.title
+            p.mb-1.text-xs.text-white.font-light= `created on ${(entry.created_at.getMonth()+1)}/${entry.created_at.getDate()}/${entry.created_at.getFullYear()}` 
             p.mb-1.text-xs.text-white.font-light= `due on ${(entry.due_date.getMonth()+1)}/${entry.due_date.getDate()}/${entry.due_date.getFullYear()}`
             p.text-sm.text-white.my-3= entry.content
-          div(class='h-1/4 bottom-0') 
-            button.py-1.px-2.bg-red-500.text-white.transition.ease-in.duration-200.text-center.text-base.font-semibold.shadow-md.rounded-lg(type='button' class='hover:bg-red-700 w-full') remove
+          div(class='h-1/6 inline-flex w-full items-center justify-between gap-2 bottom-0')     
+              form(action=`/remove/${entry._id}`, method="post" class='w-1/2') 
+                button.justify-center.p-1.bg-red-500.text-white.transition.ease-in.duration-200.text-center.font-semibold.shadow-md.rounded-lg(type='submit' class='hover:bg-red-700 w-full') remove
+              form(action=`/edit/${entry._id}`, method='get' class='w-1/2')
+                button.justify-center.p-1.bg-emerald-500.text-white.transition.ease-in.duration-200.text-center.font-semibold.shadow-md.rounded-lg(type='submit' class='hover:bg-emerald-700 w-full') finish
