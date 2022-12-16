@@ -10,8 +10,11 @@ router.get('/', (req,res) => {
 router.post("/", (req, res) => {
   const {title, content, due_date} = req.body
 
+  
+  console.log(due_date)
+
   const dd = new Date(due_date);
-  const created_at = new Date();
+  const created_at = new Date().setHours(0,0,0,0);
 
   const item = new db({
     title: title,
