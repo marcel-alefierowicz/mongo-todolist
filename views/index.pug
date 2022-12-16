@@ -1,13 +1,22 @@
 extends layout
 
-
 block content
   .flex
     include header
   .flex
-    div(class='w-3/5').bg-gradient-to-r.from-gray-700.to-gray-900.h-screen
-      .flex.text-white.justify-center.items-center.text-4xl.font-semibold.my-10.h-8
-        h1 active tasks
+    div(class='w-3/5').h-screen
+      .flex.text-white.justify-center.items-center.text-4xl.font-semibold.my-10.h-8.gap-3
+        h1.inline-flex active tasks
+        form(action="/add/") 
+          button
+            svg.w-8.h-8(xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor')
+              path(stroke-linecap='round' stroke-linejoin='round' d='M12 4.5v15m7.5-7.5h-15')
+        
+        input(class='w-6 h-6 bg-gray-800' type="date", onChange=`window.location.replace('/filter/' + this.value)`)
+        svg(class='w-6 h-6 -mx-9 pointer-events-none' xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor')
+          path(stroke-linecap='round' stroke-linejoin='round' d='M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5m-9-6h.008v.008H12v-.008zM12 15h.008v.008H12V15zm0 2.25h.008v.008H12v-.008zM9.75 15h.008v.008H9.75V15zm0 2.25h.008v.008H9.75v-.008zM7.5 15h.008v.008H7.5V15zm0 2.25h.008v.008H7.5v-.008zm6.75-4.5h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V15zm0 2.25h.008v.008h-.008v-.008zm2.25-4.5h.008v.008H16.5v-.008zm0 2.25h.008v.008H16.5V15z')
+
+
       div.flex.flex-wrap.items-center.justify-center.my-6
         each entry in active
           .card.relative.w-64.h-64.px-4.pt-2.overflow-hidden.bg-gray-900.drop-shadow-2xl.rounded-2xl.m-8.min-w-64
@@ -23,15 +32,15 @@ block content
                   form(action=`/finish/${entry._id}`, method='POST' class='w-1/2')
                     button.justify-center.p-1.bg-emerald-500.text-white.transition.ease-in.duration-200.text-center.font-semibold.shadow-md.rounded-lg(type='submit' class='hover:bg-emerald-700 w-full') finish
     
-    div(class='w-2/5').h-screen.bg-gradient-to-r.from-gray-900.to-gray-700
+    div(class='w-2/5').h-screen
       .flex.text-white.justify-center.items-center.text-4xl.font-semibold.my-10.h-8
-        h1 completed tasks
+        h1 archive
       div.flex.flex-wrap.items-center.justify-center.my-6
         each entry in completed
           .card.relative.w-64.h-64.px-4.pt-2.overflow-hidden.bg-gray-900.drop-shadow-2xl.rounded-2xl.m-8.min-w-64
             div(class='w-8/10 h-full')
               div(class='h-3/4')
-                p.mb-2.text-xl.text-white.font-semibold.underline.decoration-solid.underline-offset-2.decoration-2.decoration-emerald-500= entry.title
+                p.mb-2.text-xl.text-white.font-semibold.underline.decoration-solid.underline-offset-2.decoration-2.decoration-violet-500= entry.title
                 p.mb-1.text-xs.text-white.font-light= `created on ${(entry.created_at.getMonth()+1)}/${entry.created_at.getDate()}/${entry.created_at.getFullYear()}` 
                 p.mb-1.text-xs.text-white.font-light= `due on ${(entry.due_date.getMonth()+1)}/${entry.due_date.getDate()}/${entry.due_date.getFullYear()}`
                 p.text-sm.text-white.my-3= entry.content

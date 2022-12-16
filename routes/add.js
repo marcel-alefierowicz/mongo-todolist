@@ -11,10 +11,12 @@ router.post("/", (req, res) => {
   const {title, content, due_date} = req.body
 
   
-  console.log(due_date)
 
   const dd = new Date(due_date);
-  const created_at = new Date().setHours(0,0,0,0);
+  const created_at = new Date();
+  created_at.setHours(1,0,0,0)
+
+  // console.log(created_at.toLocaleTimeString());
 
   const item = new db({
     title: title,
