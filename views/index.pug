@@ -18,5 +18,5 @@ block content
           div(class='h-1/6 inline-flex w-full items-center justify-between gap-2 bottom-0')     
               form(action=`/remove/${entry._id}`, method="post" class='w-1/2') 
                 button.justify-center.p-1.bg-red-500.text-white.transition.ease-in.duration-200.text-center.font-semibold.shadow-md.rounded-lg(type='submit' class='hover:bg-red-700 w-full') remove
-              form(action=`/edit/${entry._id}`, method='get' class='w-1/2')
+              form(action=`/finish/${entry._id}`, method='POST' class='w-1/2')
                 button.justify-center.p-1.bg-emerald-500.text-white.transition.ease-in.duration-200.text-center.font-semibold.shadow-md.rounded-lg(type='submit' class='hover:bg-emerald-700 w-full') finish
