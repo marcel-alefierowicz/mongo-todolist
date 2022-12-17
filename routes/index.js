@@ -9,7 +9,7 @@ router.get("/", async (req, res) => {
   res.render("index", { completed: completed, active: active });
   // console.table(completed);
   // console.table(active);
-
+  // console.log(window.location)
 });
 
 router.get("/filter/:date", async (req, res) => {
@@ -18,13 +18,14 @@ router.get("/filter/:date", async (req, res) => {
 
     const completed = await db.find({
       done: true,
-      created_at: new Date(req.params.date)
+      due_date: new Date(req.params.date)
     });
     const active = await db.find({
       done: false,
-      created_at: new Date(req.params.date)
+      due_date: new Date(req.params.date)
     })
-    res.render("index", { completed: completed, active: active });
+    res.render("index", { completed: completed, active: active, filtered: true });
+    // console.log(window.location)
 });
 
 module.exports = router;

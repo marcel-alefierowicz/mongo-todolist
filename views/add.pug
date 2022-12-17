@@ -2,12 +2,10 @@ extends layout
 
 
 block content
-  .flex
-    include header
   .flex.text-white.w-full.justify-center.text-4xl.font-semibold.mt-10.h-8
     h1 add a note
   .flex.items-center.justify-center(style='min-height:60vh; height:auto')
-    .flex.w-80.bg-gray-900.rounded-2xl.m-4.shadow-xl.p-4.justify-center.h-full(style='min-height:40vh')
+    .card.flex.w-80.bg-gray-900.rounded-2xl.m-4.shadow-xl.p-4.justify-center.h-full(style='min-height:40vh')
       form(action="/add", method="post" class='w-3/4 font-semibold text-gray-200')
         p.text-2xs.font-semibold.text-gray-300 title
         input(type="text" placeholder='' name='title' class='my-2 placeholder:text-sm py-1 px-2 hover:ring-violet-200 transition').bg-gray-900.rounded-lg.ring-gray-500.ring-1.w-full
